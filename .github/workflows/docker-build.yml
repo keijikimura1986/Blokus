@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - feature-*
   pull_request:
     branches:
       - main
@@ -16,7 +17,7 @@ jobs:
     steps:
       # Checkout the repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Test the backend code using Docker Compose
       - name: Test Backend
