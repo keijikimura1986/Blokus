@@ -23,8 +23,7 @@ jobs:
       - name: Test Backend
         run: |
           cd backend
-          docker-compose up -d
-          docker-compose exec backend pytest tests
+          pytest tests
 
       # Build the frontend Docker image
       - name: Build Frontend Docker Image
