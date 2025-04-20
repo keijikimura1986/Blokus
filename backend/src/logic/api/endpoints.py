@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
-from block_game import Player, Board, PIECE_COLORS
+from src.logic.block_game import Player, Board, PIECE_COLORS
 
 router = APIRouter()
 
@@ -9,7 +9,8 @@ router = APIRouter()
 class GameState:
     def __init__(self):
         self.board = Board(10, 10)
-        self.players = [Player("Player1", PIECE_COLORS[0]), Player("Player2", PIECE_COLORS[1])]
+        self.players = [Player("Player1", PIECE_COLORS[0]),
+                        Player("Player2", PIECE_COLORS[1])]
         self.current_turn = 0
 
     def get_current_player(self):

@@ -1,6 +1,7 @@
 import unittest
-from block_game import Player, Board, rotate_shape, flip_shape, PIECE_COLORS
-from game_logic import GameLogic
+from src.logic.block_game import Player, Board, rotate_shape, flip_shape, PIECE_COLORS
+from src.logic.game_logic import GameLogic
+
 
 class TestGameLogic(unittest.TestCase):
     def setUp(self):

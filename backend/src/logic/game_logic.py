@@ -1,5 +1,6 @@
 import copy
-from block_game import Player, Board, rotate_shape, flip_shape
+from src.logic.block_game import Player, Board, rotate_shape, flip_shape
+
 
 class GameLogic:
     def __init__(self, player_names, colors, width=10, height=10):
