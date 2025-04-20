@@ -1,0 +1,36 @@
+name: Build Dockerized Frontend and Backend
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Test the backend code using Docker Compose
+      - name: Test Backend
+        run: |
+          cd backend
+          docker-compose up -d
+          docker-compose exec backend pytest tests
+
+      # Build the frontend Docker image
+      - name: Build Frontend Docker Image
+        run: |
+          docker build -t frontend-app ./frontend
+
+      # Build the backend Docker image
+      - name: Build Backend Docker Image
+        run: |
+          docker build -t backend-app ./backend
